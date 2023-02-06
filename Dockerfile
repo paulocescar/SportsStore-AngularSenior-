@@ -2,7 +2,7 @@ FROM node:8.11.2
 
 RUN mkdir -p /usr/src/sportsstore
 
-COPY dist/SportsStore /usr/src/sportsstore/dist/SportsStore
+COPY /dist/sports-store/ /usr/src/sportsstore/dist/sports-store/
 COPY ssl /usr/src/sportsstore/ssl
 
 COPY authMiddleware.js /usr/src/sportsstore/
