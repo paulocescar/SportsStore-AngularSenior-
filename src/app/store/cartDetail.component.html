@@ -24,8 +24,8 @@
                     </tr>
                     <tr *ngFor="let line of cart.lines">
                         <td>
-                            <input type="number" class="form-control-sm" style="width:5em" [value]="line.quantity"
-                                 />
+                            <input type="number" class="form-control-sm" [(ngModel)]="line.quantity" style="width:5em" [value]="line.quantity"
+                            (change)="cart.updateQuantity(line.product, line.quantity)" />
                         </td>
                         <td>{{line.product.name}}</td>
                         <td class="text-right">
@@ -35,7 +35,7 @@
                             {{(line.lineTotal) | currency:"USD":true:"2.2-2" }}
                         </td>
                         <td class="text-center">
-                            <button class="btn btn-sm btn-danger" >
+                            <button class="btn btn-sm btn-danger" (click)="cart.removeLine(line.product.id)">
                                 Remove
                             </button>
                         </td>
