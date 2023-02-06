@@ -24,8 +24,8 @@
                     </tr>
                     <tr *ngFor="let line of cart.lines">
                         <td>
-                            <input type="number" class="form-control-sm" [(ngModel)]="line.quantity" style="width:5em" [value]="line.quantity"
-                            (change)="cart.updateQuantity(line.product, line.quantity)" />
+                            <input type="number" class="form-control-sm" [(ngModel)]="line.quantity" style="width:5em"
+                                [value]="line.quantity" (change)="cart.updateQuantity(line.product, line.quantity)" />
                         </td>
                         <td>{{line.product.name}}</td>
                         <td class="text-right">
@@ -58,8 +58,9 @@
                 <button class="btn btn-primary m-1" routerLink="/store">
                     Continue Shopping
                 </button>
-                <button class="btn btn-secondary m-1" routerLink="/checkout" [disabled]="cart.lines.length == 0">
-                    Checkout
+                <button class="btn btn-secondary m-1" routerLink="/checkout"
+                    [disabled]="cart.lines.length == 0 && connected">
+                    {{ connected ? 'Checkout' : 'Offline' }}
                 </button>
             </div>
         </div>

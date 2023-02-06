@@ -8,7 +8,7 @@ export class CounterDirective {
         private template: TemplateRef<Object>) {
     }
     @Input("counterOf")
-    counter: number = 1;
+    counter: number = 0;
     ngOnChanges(changes: SimpleChanges) {
         this.container.clear();
         for (let i = 0; i < this.counter; i++) {
